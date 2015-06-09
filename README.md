@@ -6,9 +6,9 @@ Time spent: [4.5h]
 
 Completed:
 
-* [] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-* [] Required: Settings page to change the default tip percentage.
-* [] Optional: Add a light/dark color theme to the settings view. In viewWillAppear, update views with the correct theme colors.
+* [x] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
+* [x] Required: Settings page to change the default tip percentage.
+* [x] Optional: Add a light/dark color theme to the settings view. In viewWillAppear, update views with the correct theme colors.
 
 ![Video Walkthrough](tipCalculator.gif)
 
