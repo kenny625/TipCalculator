@@ -7,10 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TipViewController">
             <connections>
+                <outlet property="billLabel" destination="P8D-Ig-qSh" id="LGp-tl-Ca0"/>
                 <outlet property="billTextField" destination="EkB-dq-kNj" id="d4q-NE-mor"/>
+                <outlet property="tipAmountLabel" destination="Tlz-SL-wkS" id="6fg-oR-dxP"/>
                 <outlet property="tipControl" destination="1Q1-MQ-cAQ" id="K3a-2z-j50"/>
                 <outlet property="tipLabel" destination="dVf-kZ-2Up" id="ZJp-VQ-o4D"/>
                 <outlet property="totalLabel" destination="rpX-hU-Qru" id="gSx-XC-mOo"/>
+                <outlet property="totalTextLabel" destination="cVI-J0-SeZ" id="gtN-8o-q41"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,7 +34,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EkB-dq-kNj">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EkB-dq-kNj">
                     <rect key="frame" x="136" y="129" width="164" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -64,7 +67,7 @@
                     </connections>
                 </segmentedControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpX-hU-Qru">
-                    <rect key="frame" x="160" y="316" width="140" height="40"/>
+                    <rect key="frame" x="160" y="325" width="140" height="40"/>
                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
