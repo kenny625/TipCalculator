@@ -21,6 +21,8 @@
     TipViewController *vc = [[TipViewController alloc] init];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nvc;
+    self.lightColor = [UIColor colorWithRed:235.0f/255.0f green:248.0f/255.0f blue:44.0f/255.0f alpha:1.0];
+    self.darkColor = [UIColor colorWithRed:122.0f/255.0f green:35.0f/255.0f blue:251.0f/255.0f alpha:1.0];
     return YES;
 }
 

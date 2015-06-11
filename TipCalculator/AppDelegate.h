@@ -11,7 +11,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) UIColor *lightColor;
+@property (strong, nonatomic) UIColor *darkColor;
 
 @end
 

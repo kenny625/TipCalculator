@@ -34,10 +34,15 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EkB-dq-kNj">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$" textAlignment="right" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="EkB-dq-kNj">
                     <rect key="frame" x="136" y="129" width="164" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="backgroundColor" red="0.92156862745098034" green="0.97254901960784312" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                    <connections>
+                        <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="y4p-rM-ZZA"/>
+                    </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$3.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVf-kZ-2Up">
                     <rect key="frame" x="208" y="197" width="92" height="21"/>
@@ -75,9 +80,6 @@
             </subviews>
             <color key="backgroundColor" red="1" green="0.88550170590259958" blue="3.3306690738754696e-16" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="B8w-Qb-qie" appends="YES" id="kvR-e3-zwG"/>
-            </connections>
             <point key="canvasLocation" x="332" y="317"/>
         </view>
         <tapGestureRecognizer id="B8w-Qb-qie">

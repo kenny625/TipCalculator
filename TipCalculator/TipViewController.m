@@ -8,6 +8,9 @@
 
 #import "TipViewController.h"
 #import "SettingViewController.h"
+#import "AppDelegate.h"
+
+bool isFirst = true;
 
 @interface TipViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *billTextField;
@@ -18,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTextLabel;
 - (IBAction)onTap:(id)sender;
+- (IBAction)textFieldChanged:(id)sender;
 - (void)updateValues;
 - (void)loadSettings;
 @end
@@ -30,6 +34,8 @@
     self.title = @"Tip Calculator";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingsButton)];
     [self loadSettings];
+    [self.billTextField becomeFirstResponder];
+    isFirst = true;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,7 +58,10 @@
 */
 
 - (IBAction)onTap:(id)sender {
-    [self.view endEditing:YES];
+    [self updateValues];
+}
+
+- (IBAction)textFieldChanged:(id)sender {
     [self updateValues];
 }
 
@@ -63,6 +72,22 @@
     float totalAmount = tipAmount + billAmount;
     self.tipLabel.text = [NSString stringWithFormat:@"$%0.2f", tipAmount];
     self.totalLabel.text = [NSString stringWithFormat:@"$%0.2f", totalAmount];
+    if (!isFirst && (self.billTextField.text == nil || self.billTextField.text.length == 0)) {
+        [UIView animateWithDuration:1 animations:^{
+            self.totalLabel.alpha = 0;
+            self.totalTextLabel.alpha = 0;
+        } completion:^(BOOL finished) {
+            
+        }];
+
+    } else if (isFirst) {
+        self.totalLabel.alpha = 0;
+        self.totalTextLabel.alpha = 0;
+    } else {
+        self.totalLabel.alpha = 1;
+        self.totalTextLabel.alpha = 1;
+    }
+    isFirst = false;
 }
 
 - (void)onSettingsButton {
@@ -70,25 +95,30 @@
 }
 
 - (void)loadSettings {
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self.tipControl setSelectedSegmentIndex:[defaults integerForKey:@"defaultTipAmountIndex"]];
     
     if ([defaults integerForKey:@"Theme"] == 0) {
-        self.view.backgroundColor = [UIColor colorWithRed:235.0f/255.0f green:248.0f/255.0f blue:44.0f/255.0f alpha:1.0];
+        self.view.backgroundColor = app.lightColor;
         self.billLabel.textColor = [UIColor blueColor];
         self.tipAmountLabel.textColor = [UIColor blueColor];
         self.tipControl.tintColor = [UIColor blueColor];
         self.totalLabel.textColor = [UIColor blueColor];
         self.tipLabel.textColor = [UIColor blueColor];
         self.totalTextLabel.textColor = [UIColor blueColor];
+        self.billTextField.backgroundColor = app.lightColor;
+        self.billTextField.textColor = [UIColor blueColor];
     } else {
-        self.view.backgroundColor = [UIColor colorWithRed:122.0f/255.0f green:35.0f/255.0f blue:251.0f/255.0f alpha:1.0];
+        self.view.backgroundColor = app.darkColor;
         self.billLabel.textColor = [UIColor whiteColor];
         self.tipAmountLabel.textColor = [UIColor whiteColor];
         self.tipControl.tintColor = [UIColor whiteColor];
         self.totalLabel.textColor = [UIColor whiteColor];
         self.tipLabel.textColor = [UIColor whiteColor];
         self.totalTextLabel.textColor = [UIColor whiteColor];
+        self.billTextField.backgroundColor = app.darkColor;
+        self.billTextField.textColor = [UIColor whiteColor];
     }
     
     [self updateValues];
