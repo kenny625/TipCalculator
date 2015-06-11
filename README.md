@@ -12,6 +12,7 @@ Completed:
 * [x] Optional: UI animations(changing alpha of the total result label)
 * [x] Optional: Always show keyboard
 * [x] Optional: Calculate the result instantly
+
 ![Video Walkthrough](tipCalculator.gif)
 
 Note: to embed the gif file, just check your gif file into your repo and update the name of the file above.
